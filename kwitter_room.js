@@ -16,13 +16,13 @@ user_name = localStorage.getItem("key");
 document.getElementById("3g").innerHTML = "Welcome  " + user_name
 function getData() {
       firebase.database().ref("/").on('value', function (snapshot) {
-            document.getElementById("output").innerHTML = ""; snapshot.forEach(function (childSnapshot) {
+            document.getElementById("tbd").innerHTML = ""; snapshot.forEach(function (childSnapshot) {
                   childKey = childSnapshot.key;
                   Room_names = childKey;
                   //Start code
                   console.log("Room Name - " + Room_names);
-                  row = "div class = 'room_name' id = " + Room_names + "onclick='redirectToRoomName(this.id)' >#" + Room_names + "</div > <hr>";
-                  document.getElementById("tbd").innerHTML = row
+                  row = "<div class='room_name' id=" + Room_names + " onclick='redirectToRoomName(this.id)' >#" + Room_names + "</div><hr>"; 
+                  document.getElementById("tbd").innerHTML += row;
                   //End code
             });
       });
